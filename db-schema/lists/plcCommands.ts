@@ -20,20 +20,20 @@ const plcCommandSchema: ListSchema={
             options:[
                 {value:'Pending',label:'Pending'},
                 {value:'Success',label:'Success'}
-            ],
-            hooks: {
-                async validateInput(props : any){
-                    console.log('plCommand triggers'+props?.existingItem?.operation);
-                    if(props.operation=="update"){
-                        var result = await plcCommandTrigger.validateStatus(props);
-                        if(!result) {
-                            props.addFieldValidationError('Command did not take effect yet.')
-                        };
-                    }
-                    return props.resolvedData;
-                },
+            ]
+            // hooks: {
+            //     async validateInput(props : any){
+            //         console.log('plCommand triggers'+props?.existingItem?.operation);
+            //         if(props.operation=="update"){
+            //             var result = await plcCommandTrigger.validateStatus(props);
+            //             if(!result) {
+            //                 props.addFieldValidationError('Command did not take effect yet.')
+            //             };
+            //         }
+            //         return props.resolvedData;
+            //     },
         
-            }
+            // }
         },
         payload:{type:Text,isRequired: true}
         
